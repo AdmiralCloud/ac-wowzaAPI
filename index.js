@@ -41,14 +41,12 @@ const Wowza = (function() {
         }
 
         return that[op.method](path, data, function(err, result) {
-          let json
-          try {
-            json = JSON.parse(_.get(result, 'body'))
+          if (err) return cb(err)
+          let statusCode =  _.get(result, 'statusCode')
+          if (statusCode >= 400) {
+            err = { statusCode: statusCode, message: _.get(result, 'body.meta.code') }
           }
-          catch(e) {
-            json = {}
-          }
-          return cb(err, json)
+          return cb(err, _.get(result, 'body'))
         })
       }
     })
