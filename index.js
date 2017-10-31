@@ -42,7 +42,7 @@ const Wowza = (function() {
 
         return that[op.method](path, data, function(err, result) {
           if (err) return cb(err)
-          let statusCode =  _.get(result, 'statusCode')
+          let statusCode = _.get(result, 'statusCode')
           if (statusCode >= 400) {
             err = { statusCode: statusCode, message: _.get(result, 'body.meta.code') }
           }
@@ -70,7 +70,8 @@ const Wowza = (function() {
   Wowza.prototype.get = function(path, data, cb) {
     let params = {
       method: 'get',
-      uri: this.url + path
+      uri: this.url + path,
+      json: data
     }
     return this.r(params, cb)
   }

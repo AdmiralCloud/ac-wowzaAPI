@@ -16,6 +16,7 @@ module.exports = {
     { operation: 'stopLiveStream', method: 'put', path: 'live_streams/{id}/stop',  requiredFields: ['id'] },
     { operation: 'getPlayer', method: 'get', path: 'players/{id}',  requiredFields: ['id'] },
     { operation: 'getPlayerState', method: 'get', path: 'players/{id}/state',  requiredFields: ['id'] },
+    { operation: 'getRecordings', method: 'get', path: 'recordings' },
     { operation: 'getRecording', method: 'get', path: 'recordings/{id}',  requiredFields: ['id'] },
     { operation: 'getRecordingState', method: 'get', path: 'recordings/{id}/state',  requiredFields: ['id'] },
     { operation: 'deleteRecording', method: 'delete', path: 'recordings/{id}',  requiredFields: ['id'] }
